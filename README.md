@@ -1,7 +1,7 @@
 # kanbanbboard-electron
  
 
-Application Kanban Board 📋
+Application Kanban Board 📋 
 
 Bienvenue sur mon application Kanban Board ! Une interface intuitive et facile à utiliser, conçue pour vous aider à organiser vos tâches et vos projets de manière efficace. Réalisée avec React, Vite, Tailwind CSS et Electron, cette application est parfaite pour les débutants désireux de se plonger dans React et ses bibliothèques. Que vous gériez des tâches personnelles ou collaboriez sur un projet d'équipe, ce tableau Kanban s'adapte à votre flux de travail. Ce projet est basé sur le tutoriel très complet de youtube de @Kliton (@codewithkliton sur youtube) : https://www.youtube.com/watch?v=RG-3R6Pu_Ik&list=LL&index=5&t=2s
 
