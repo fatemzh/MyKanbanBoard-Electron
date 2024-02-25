@@ -9,10 +9,14 @@ Bienvenue sur mon application Kanban Board ! Une interface intuitive et facile �
 
 
 
+
+
 Parcours d'Apprentissage 📖
 
 Ce projet a été développé pendant mon temps personnel comme moyen d'apprendre React et ses bibliothèques associées. Je recommande vivement ce projet à d'autres débutants intéressés par une expérience pratique avec ces technologies.
 Le lien du tutorial de @Kliton : https://www.youtube.com/watch?v=RG-3R6Pu_Ik&list=LL&index=5&t=2s
+
+
 
 
 Fonctionnalités 🚀
@@ -47,6 +51,7 @@ Lancez l'application Electron >> npm run electron
 
 
 
+
 Technologies Utilisées 🛠️
 
 
@@ -59,6 +64,7 @@ Vite : Pour une expérience de développement optimisée et rapide.
 Tailwind CSS : Pour le style avec un CSS utilitaire.
 
 Electron : Pour créer une application de bureau multiplateforme.
+
 
 
 
