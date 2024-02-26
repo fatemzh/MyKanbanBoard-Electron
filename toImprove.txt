@@ -1,0 +1,3 @@
+Mode jour/nuit
+Header/Footer
+Publish on the microsoft store
