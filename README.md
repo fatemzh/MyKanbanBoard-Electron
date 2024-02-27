@@ -1,6 +1,6 @@
-
-### FR VERSION
-_________________________________________________________________________________________________________________________________
+________________________________________________________________________________
+                              Version Française
+________________________________________________________________________________
 
 
 # Application Kanban Board 📋 
@@ -71,11 +71,14 @@ Electron : Pour créer une application de bureau multiplateforme.
 ## Contribuer 🤝
 
 
-Vous souhaitez contribuer ? L'application est ouverts aux améliorations et aux nouvelles fonctionnalités ! Un domaine potentiel d'amélioration est l'ajout d'un serveur Node.js pour des fonctionnalités collaboratives. N'hésitez pas à forker le dépôt, faire vos modifications et soumettre une pull request. Améliorons ensemble l'application Kanban Board !
+Vous souhaitez contribuer ? L'application est ouverts aux améliorations et aux nouvelles fonctionnalités ! Un domaine potentiel d'amélioration est l'ajout d'un serveur Node.js pour des fonctionnalités collaboratives. N'hésitez pas à forker le dépôt, faire vos modifications et soumettre une pull request. Améliorons ensemble l'application Kanban Board !  
 
 
-### EN VERSION
-_________________________________________________________________________________________________________________________________
+
+________________________________________________________________________________
+                              English Version
+________________________________________________________________________________
+
 
 
 # Kanban Board Application 📋
