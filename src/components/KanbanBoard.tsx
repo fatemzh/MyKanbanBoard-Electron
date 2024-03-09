@@ -6,6 +6,8 @@ import { SortableContext, arrayMove } from '@dnd-kit/sortable';
 import PlusIcon from '../Icons/PlusIcon';
 import { createPortal } from 'react-dom';
 import TaskCard from './TaskCard';
+import Title from '../images/title.png';
+
 
 const KanbanBoard = () => {
     const [columns, setColumns] = useState<Column[]>([]);
@@ -31,6 +33,9 @@ const KanbanBoard = () => {
             overflow-y-hidden
             px-[40px]
         ">
+            <div className="flex justify-center">
+          <img src={Title} alt="Kanban Board écrit en lettrage 3d" className='w-[600px]'/>
+        </div>
             <DndContext 
                 sensors={sensors}
                 onDragStart={onDragStart} 
@@ -64,9 +69,9 @@ const KanbanBoard = () => {
                         min-x-[350px]
                         cursor-pointer
                         rounded-lg
-                        bg-indigo-100
+                        bg-indigo-300
                         p-4
-                        hover:bg-indigo-100
+                        hover:bg-indigo-400
                         flex
                         gap-2
                         hover:text-white font-semibold

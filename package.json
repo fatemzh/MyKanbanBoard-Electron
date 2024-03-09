@@ -1,7 +1,9 @@
 {
   "name": "kanbanboardapp-electron",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
+  "description": "Une application Kanban board construite avec Electron, React et Tailwind CSS",
+  "author":"Abid Fatima",
   "main": "electron/electron.js",
   "scripts": {
     "dev": "vite",
@@ -19,6 +21,7 @@
     "@dnd-kit/sortable": "^8.0.0",
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
+    "electron-is-dev": "^3.0.1",
     "tailwind-merge": "^2.2.1",
     "wait-on": "^7.0.1"
   },
@@ -30,6 +33,7 @@
     "@vitejs/plugin-react-swc": "^3.6.0",
     "autoprefixer": "^10.4.17",
     "electron": "^22.0.0",
+    "electron-builder": "^24.13.3",
     "electron-packager": "^17.1.2",
     "postcss": "^8.4.35",
     "react": "^18.2.0",
@@ -40,8 +44,8 @@
   },
   "build": {
     "appId": "com.devname.package",
-    "productName": "Project Name",
-    "copyright": "Copyright © 2023 ${author}",
+    "productName": "MyKanbanBoard",
+    "copyright": "Copyright © 2024 Abid Fatima",
     "mac": {
       "category": "public.app-category.utilities"
     },
@@ -51,11 +55,17 @@
     },
     "files": [
       "dist/**/*",
-      "electron/**/*"
+      "electron/**/*",
+      "electron.js",
+      "package.json"
     ],
     "directories": {
       "buildResources": "assets",
       "output": "dist_electron"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "./src/Icons/logo.ico"
     }
   }
 }
