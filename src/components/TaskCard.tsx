@@ -40,8 +40,19 @@ function TaskCard({ task, deleteTask, updateTask}: Props) {
   };
   if(isDragging) {
     return(
-      <div ref={setNodeRef} style={style} className=" opacity-30 bg-mainBackgroundColor p-2.5 h-[100px]
-      min-h-[100px] items-center flex text-left rounded-xl border-2 border-rose-500 cursor-grab relative"/>
+      <div ref={setNodeRef} style={style} 
+      className="opacity-30
+       bg-mainBackgroundColor 
+       p-2.5 
+       h-[100px]
+        min-h-[100px] 
+        items-center 
+        flex 
+        text-left 
+        rounded-xl 
+        border-2
+        cursor-grab 
+        relative"/>
     )
   }
 
@@ -52,8 +63,23 @@ function TaskCard({ task, deleteTask, updateTask}: Props) {
         style={style}
         {...attributes}
         {...listeners}
-        className="bg-mainBackgroundColor p-2.5 h-[100px]
-      min-h-[100px] items-center flex text-left rounded-xl hover:ring-2 hover:ring-inset hover:ring-rose-500 cursor-grab relative"
+        className="
+        bg-blue-500
+        border:none
+        rounded-xl 
+        bg-opacity-60 
+        backdrop-filter 
+        backdrop-blur-lg
+        2.5 h-[100px]
+        min-h-[100px] 
+        items-center 
+        flex 
+        text-left 
+        cursor-grab 
+        relative
+        p-3
+        text-content:empty
+        "
       >
         <textarea 
           className="
@@ -85,8 +111,19 @@ function TaskCard({ task, deleteTask, updateTask}: Props) {
       {...attributes}
       {...listeners}
       onClick={toggleEditMode}
-      className="bg-mainBackgroundColor p-2.5 h-[100px]
-      min-h-[100px] items-center flex text-left rounded-xl hover:ring-2 hover:ring-inset hover:ring-rose-500 cursor-grab relative"
+      className="
+      bg-white
+      rounded-xl 
+      bg-opacity-40 
+      backdrop-filter 
+      backdrop-blur-lg
+      p-2.5 h-[100px]
+      min-h-[100px] 
+      items-center 
+      flex 
+      text-left
+      cursor-grab 
+      relative"
       onMouseEnter={() => {
         setMouseIsOver(true);
       }}
@@ -94,7 +131,14 @@ function TaskCard({ task, deleteTask, updateTask}: Props) {
         setMouseIsOver(false);
       }}
     >
-      <p className="my-auto h-[90%] w-full overflow-y-auto overflow-x-hidden whitespace-pre-wrap">
+      <p className="
+      my-auto 
+      h-[90%] 
+      w-full 
+      overflow-y-auto 
+      overflow-x-hidden 
+      whitespace-pre-wrap
+      hover:cursor-grab">
         {task.content}
       </p>
       {mouseIsOver && (
@@ -102,7 +146,7 @@ function TaskCard({ task, deleteTask, updateTask}: Props) {
           onClick={() => {
             deleteTask(task.id);
           }}
-          className="stroke-white absolute right-4 top-1/2 -translate-y-1/2 bg-columnBackgroundColor p-2 rounded
+          className="stroke-white absolute right-4 top-1/2 -translate-y-1/2 bg-indigo-600 p-2 rounded
       opacity-60 hover:opacity-100"
         >
           <TrashIcon />

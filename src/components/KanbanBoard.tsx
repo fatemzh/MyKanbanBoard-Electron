@@ -24,8 +24,6 @@ const KanbanBoard = () => {
     return (
         <div
             className="
-            m-auto
-            flex
             min-h-screen
             w-full
             items-center
@@ -66,14 +64,12 @@ const KanbanBoard = () => {
                         min-x-[350px]
                         cursor-pointer
                         rounded-lg
-                        bg-mainBackgroudColor
-                        border-2
-                        border-ColumnBackgroundColor
+                        bg-indigo-100
                         p-4
-                        ring-purple-500
-                        hover:ring-4
+                        hover:bg-indigo-100
                         flex
                         gap-2
+                        hover:text-white font-semibold
                     ">
                         <PlusIcon />
                         Add Column

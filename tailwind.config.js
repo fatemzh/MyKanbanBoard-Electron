@@ -9,6 +9,9 @@ export default {
       colors:{
         "mainBackgroundColor":'#0D1117',
         "columnBackgroundColor":'#161D22'
+      },
+      fontFamily: {
+        'DM Serif Display': ['DM', 'sans-serif'],
       }
     },
   },

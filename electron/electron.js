@@ -4,9 +4,11 @@ const { app, BrowserWindow } = require('electron');
 const isDev = process.env.IS_DEV == "true" ? true : false;
  
 function createWindow() {
+  const iconPath = path.join(__dirname, '..', 'src', 'Icons', 'logo.ico'); // Mise à jour du chemin
   const mainWindow = new BrowserWindow({
-    width: 1024,
+    width: 1224,
     height: 750,
+    icon: iconPath, // Utilisation du chemin corrigé
     autoHideMenuBar: true,
     resizable: false,
     frame: true,

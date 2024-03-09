@@ -57,7 +57,7 @@ function ColumnContainer(props: Props) {
         ref={setNodeRef}
         style={style}
         className="
-            bg-columnBackgroundColor
+            bg-blue-400
             opacity-30
             border-2
             border-rose-500
@@ -76,12 +76,15 @@ function ColumnContainer(props: Props) {
     <div
       ref={setNodeRef}
       style={style}
-      className="
-        bg-columnBackgroundColor
+      className="        
+        bg-blue-50
+        rounded-xl 
+        bg-opacity-60 
+        backdrop-filter 
+        backdrop-blur-lg
         w-[350px]
         h-[500px]
         max-h-[500px]
-        rounded-md
         flex
         flex-col
     "
@@ -92,7 +95,7 @@ function ColumnContainer(props: Props) {
         {...listeners}
         onClick={() => setEditMode(true)}
         className="
-            bg-mainBackgroundColor
+            bg-sky-200
             text-md
             h-[60px]
             cursor-grab
@@ -100,8 +103,6 @@ function ColumnContainer(props: Props) {
             rounded-b-none
             p-3
             font-bold
-            border-columnBackgroundColor
-            border-4
             flex
             items-center
             justify-between
@@ -113,24 +114,10 @@ function ColumnContainer(props: Props) {
                 gap-2
             "
         >
-          <div
-            className="
-                    flex
-                    justify-center
-                    items-center
-                    bg-columnBackgroundColor
-                    px-2
-                    py-1
-                    text-sm
-                    rounded-full
-                "
-          >
-            0
-          </div>
           {!editMode && column.title}
           {editMode && (
             <input
-              className="bg-black focus:border-rose-500 border rounded outline-none px-2"
+              className="bg-white opacity-70 focus:border-white border rounded outline-none px-2"
               value={column.title}
               onChange={(e) => updateColumn(column.id, e.target.value)}
               autoFocus
@@ -146,9 +133,9 @@ function ColumnContainer(props: Props) {
             deleteColumn(column.id);
           }}
           className="
-                stroke-gray-500
+                stroke-gray-900
                 hover:stroke-white
-                hover:bg-columnBackgroundColor
+                hover:bg-sky-400
                 rounded
                 px-1
                 py-2
@@ -176,9 +163,11 @@ function ColumnContainer(props: Props) {
                 flex
                 gap-2
                 items-center
-                border-columnBackgroundColor border-2 rounded-md p-4
-                border-x-columnBackgroundColor hover:text-rose-500
-                active:bg-black"
+                bg-sky-300 rounded-md p-4
+                border-x-columnBackgroundColor hover:text-white font-semibold
+                active:bg-indigo-300
+                hover:bg-indigo-400
+                "
         onClick={() => {
           createTask(column.id);
         }}
