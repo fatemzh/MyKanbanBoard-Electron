@@ -1,0 +1,4 @@
+owner: fatemzh
+repo: kanbanboard-electron
+provider: github
+updaterCacheDirName: kanbanboardapp-electron-updater

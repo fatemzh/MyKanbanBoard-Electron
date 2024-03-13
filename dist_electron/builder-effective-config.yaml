@@ -1,0 +1,21 @@
+directories:
+  output: dist_electron
+  buildResources: assets
+appId: com.devname.package
+productName: MyKanbanBoard
+copyright: Copyright © 2024 Abid Fatima
+mac:
+  category: public.app-category.utilities
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+files:
+  - filter:
+      - dist/**/*
+      - electron/**/*
+      - electron.js
+      - package.json
+win:
+  target: nsis
+  icon: ./src/Icons/logo.ico
+electronVersion: 22.3.27
