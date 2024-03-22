@@ -1,49 +1,56 @@
 const path = require('path');
-const { app, BrowserWindow } = require('electron');
- 
+const { app, BrowserWindow, shell } = require('electron');
+
+// Détermination du mode de l'application (développement ou production)
 const isDev = process.env.IS_DEV == "true" ? true : false;
- 
+
+// Crée la fenêtre principale de l'application
 function createWindow() {
-  const iconPath = path.join(__dirname, '..', 'src', 'Icons', 'logo.ico'); // Mise à jour du chemin
+  // Chemin vers l'icône de l'application
+  const iconPath = path.join(__dirname, '..', 'src', 'Icons', 'logo.ico');
   const mainWindow = new BrowserWindow({
     width: 1224,
     height: 750,
-    icon: iconPath, // Utilisation du chemin corrigé
-    autoHideMenuBar: true,
-    resizable: false,
-    frame: true,
+    icon: iconPath, 
+    autoHideMenuBar: true, 
+    resizable: true, 
+    frame: true, // Affiche les bordures et la barre de titre de la fenêtre
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true,
-      contextIsolation: false
+      preload: path.join(__dirname, 'preload.js'), // Chemin vers le script de préchargement
+      nodeIntegration: true, // Active l'intégration de Node.js dans le contexte de rendu
+      contextIsolation: false // Désactive l'isolation du contexte pour permettre l'accès aux API Node.js
     },
   });
- 
+
+  // Gestionnaire pour les liens externes ouverts dans l'application
   mainWindow.webContents.setWindowOpenHandler((edata) => {
-    shell.openExternal(edata.url);
-    return { action: "deny" };
+    shell.openExternal(edata.url); // Ouvre les liens externes dans le navigateur par défaut
+    return { action: "deny" }; // Empêche l'ouverture de nouvelles fenêtres Electron
   });
- 
+
+  // Charge l'URL de l'application en fonction du mode (développement ou production)
   mainWindow.loadURL(
     isDev
-      ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, '../dist/index.html')}`
+      ? 'http://localhost:3000' // URL de développement
+      : `file://${path.join(__dirname, '../dist/index.html')}` // URL de production
   );
-  // Open the DevTools.
+
+  // Ouvre les outils de développement en mode développement
   if (isDev) {
-    //mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools(); 
   }
- 
 }
- 
- 
+
+// Création de la fenêtre principale une fois que l'application est prête
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
+  // Recrée une fenêtre si l'application est réactivée et qu'aucune fenêtre n'est ouverte (macOS)
   app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
 });
- 
+
+// Quitte l'application lorsque toutes les fenêtres sont fermées, sauf sur macOS
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();

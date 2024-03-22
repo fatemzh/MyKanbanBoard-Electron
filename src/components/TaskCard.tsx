@@ -1,19 +1,24 @@
+// Importation des hooks et composants nécessaires
 import { useState } from "react";
 import TrashIcon from "../Icons/TrashIcon";
 import { Id, Task } from "../types";
 import { useSortable } from "@dnd-kit/sortable";
 import {CSS} from "@dnd-kit/utilities";
 
+// Définition des props attendues par le composant TaskCard
 interface Props {
   task: Task;
   deleteTask: (id: Id) => void;
   updateTask: (id: Id, content:string) => void;
 }
 
+// Affiche une tâche individuelle
 function TaskCard({ task, deleteTask, updateTask}: Props) {
+  // Gère le survol de la souris et le mode d'édition
   const [mouseIsOver, setMouseIsOver] = useState(false);
   const [editMode, setEditMode] = useState(false);
 
+  // Configuration du glisser-déposer pour la tâche
   const {
     setNodeRef,
     attributes,
@@ -30,14 +35,19 @@ function TaskCard({ task, deleteTask, updateTask}: Props) {
     disabled: editMode,
   });
 
+  // Style dynamique pour la tâche pendant le glisser-déposer
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
   };
+
+  // Fonction pour basculer le mode d'édition
   const toggleEditMode = () => {
     setEditMode((prev) => !prev);
     setMouseIsOver(false);
   };
+  
+  // Affichage temporaire de la tâche pendant le glisser-déposer
   if(isDragging) {
     return(
       <div ref={setNodeRef} style={style} 
@@ -56,6 +66,7 @@ function TaskCard({ task, deleteTask, updateTask}: Props) {
     )
   }
 
+  // Rendu de la tâche en mode d'édition
   if (editMode) {
     return (
       <div
@@ -103,7 +114,8 @@ function TaskCard({ task, deleteTask, updateTask}: Props) {
       </div>
     );
   }
-
+  
+  // Rendu principal de la tâche (mode lecture)
   return (
     <div
       ref={setNodeRef}

@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import PlusIcon from "../Icons/PlusIcon";
 import TaskCard from "../components/TaskCard";
 
+// Définition des props attendues par le composant ColumnContainer
 interface Props {
   column: Column;
   deleteColumn: (id: Id) => void;
@@ -16,7 +17,9 @@ interface Props {
   tasks: Task[];
 }
 
+// Composant ColumnContainer qui affiche une colonne et ses tâches
 function ColumnContainer(props: Props) {
+  // Destructuration des props pour un accès facile
   const {
     column,
     deleteColumn,
@@ -26,10 +29,16 @@ function ColumnContainer(props: Props) {
     deleteTask,
     updateTask,
   } = props;
+
+  // État local pour gérer le mode d'édition du titre de la colonne
   const [editMode, setEditMode] = useState(false);
+
+  // Enregistre les IDs des tâches 
   const tasksIds = useMemo(()=>{
     return tasks.map((task) => task.id)
   }, [tasks])
+  
+  // Configuration du glisser-déposer pour la colonne
   const {
     setNodeRef,
     attributes,
@@ -46,11 +55,13 @@ function ColumnContainer(props: Props) {
     disabled: editMode,
   });
 
+  // Style dynamique pour la colonne pendant le glisser-déposer
   const style = {
     transition,
     transform: CSS.Transform.toString(transform),
   };
 
+  // Affichage temporaire de la colonne pendant le glisser-déposer
   if (isDragging) {
     return (
       <div
@@ -89,7 +100,7 @@ function ColumnContainer(props: Props) {
         flex-col
     "
     >
-      {/* Column title */}
+      {/* En-tête de la colonne avec gestion du mode d'édition */}
       <div
         {...attributes}
         {...listeners}
